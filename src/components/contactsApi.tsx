@@ -18,8 +18,8 @@ export const contactsApi = createApi({
   keepUnusedDataFor: 6000,
   tagTypes: ['Contact'],
   endpoints: (builder) => ({
-    contacts: builder.query<Contact[], void>({
-      query: (page) => `/users/?_limit=3=&_page=${page}`,
+    contacts: builder.query<Contact[], number>({
+      query: (page =  1) => `/users/?_limit=3=&_page=${page}`,
       providesTags: ['Contact'],
     }),
     contact: builder.query<Contact, string>({
