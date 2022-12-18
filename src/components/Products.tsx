@@ -4,8 +4,10 @@ import { useContactsQuery, useAddContactMutation } from './contactsApi';
 function Products() {
   const [page, setPage] = React.useState(1);
   const { data, error, isLoading, isFetching, isSuccess } = useContactsQuery(
-    // page,
-    // {}
+    page,
+    {
+      // pollingInterval: 6000
+    }
   );
   console.log('Loading: ' + isLoading, 'Fetching: ' + isFetching);
 
@@ -39,7 +41,6 @@ function Products() {
     </div>
   );
 }
-
 
 export const AddContact = () => {
   const [addContact] = useAddContactMutation();
